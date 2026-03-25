@@ -1,7 +1,7 @@
 # AI-Driven E2E Playwright
 
-![E2E Tests](https://github.com/<YOUR_USERNAME>/ai-driven-e2e-playwright/actions/workflows/e2e.yml/badge.svg)
-[![Allure Report](https://img.shields.io/badge/Allure-Report-orange)](https://<YOUR_USERNAME>.github.io/ai-driven-e2e-playwright/)
+![E2E Tests](https://github.com/dinoudon/ai-driven-e2e-playwright/actions/workflows/e2e.yml/badge.svg)
+[![Allure Report](https://img.shields.io/badge/Allure-Report-orange)](https://dinoudon.github.io/ai-driven-e2e-playwright/)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
 ![Playwright](https://img.shields.io/badge/Playwright-1.50-green)
 
@@ -94,7 +94,7 @@ ANTHROPIC_API_KEY=<key> npx ts-node src/utils/ai/failure-analyzer.ts \
 
 Tests run automatically on every push and PR. The Allure report is deployed to GitHub Pages on main branch pushes.
 
-[View Live Allure Report](https://<YOUR_USERNAME>.github.io/ai-driven-e2e-playwright/)
+[View Live Allure Report](https://dinoudon.github.io/ai-driven-e2e-playwright/)
 
 ## Tech Stack
 
