@@ -15,17 +15,20 @@ const args = process.argv.slice(2);
 const errorIndex = args.indexOf('--error');
 const screenshotIndex = args.indexOf('--screenshot');
 
+const traceIndex = args.indexOf('--trace');
+
 if (errorIndex === -1) {
   console.error(
-    'Usage: npx ts-node src/utils/ai/failure-analyzer.ts --error "<message>" [--screenshot <path>]'
+    'Usage: npx ts-node src/utils/ai/failure-analyzer.ts --error "<message>" [--screenshot <path>] [--trace <path>]'
   );
   process.exit(1);
 }
 
 const errorMessage = args[errorIndex + 1];
 const screenshotPath = screenshotIndex !== -1 ? args[screenshotIndex + 1] : null;
+const tracePath = traceIndex !== -1 ? args[traceIndex + 1] : null;
 
-async function analyzeFailure(error: string, screenshotFile: string | null): Promise<void> {
+async function analyzeFailure(error: string, screenshotFile: string | null, traceFile: string | null): Promise<void> {
   console.log('\nAnalyzing test failure...\n');
 
   const client = new Anthropic();
@@ -49,7 +52,7 @@ async function analyzeFailure(error: string, screenshotFile: string | null): Pro
     text: `You are a Playwright automation expert. Analyze this test failure.
 
 Error message:
-${error}
+${error}${traceFile ? `\n\nTrace file path (for reference): ${traceFile}` : ''}
 
 Provide:
 1. **Root Cause** — most likely reason for this failure
@@ -71,4 +74,4 @@ Provide:
   }
 }
 
-analyzeFailure(errorMessage, screenshotPath).catch(console.error);
+analyzeFailure(errorMessage, screenshotPath, tracePath).catch(console.error);

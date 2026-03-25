@@ -32,8 +32,7 @@ async function generateSelectors(targetUrl: string, description: string): Promis
   await page.goto(targetUrl);
   await page.waitForLoadState('networkidle');
 
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval
-  const domSnapshot = await page.evaluate('document.body.innerHTML') as string;
+  const domSnapshot = await page.content();
   const truncated = domSnapshot.slice(0, 8000);
   await browser.close();
 

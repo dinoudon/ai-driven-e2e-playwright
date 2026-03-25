@@ -63,12 +63,11 @@ test.describe('Login @regression', () => {
   });
 
   // ── Edge Cases ───────────────────────────────────────────────────────
-  test('back button after login stays on inventory @edge-case', async ({ page }) => {
+  test('back button after login navigates to login page @edge-case', async ({ page }) => {
     await loginPage.login('standard_user', 'secret_sauce');
     await expect(page).toHaveURL(/inventory/);
     await page.goBack();
-    // SauceDemo navigates back to login page when pressing back — session is maintained
-    // but no automatic redirect occurs; page title confirms app is still running
-    await expect(page).toHaveTitle(/Swag Labs/);
+    // SauceDemo navigates back to login page (/) when pressing browser back button
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
   });
 });

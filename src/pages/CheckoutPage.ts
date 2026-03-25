@@ -31,7 +31,9 @@ export class CheckoutPage extends BasePage {
 
   // Step 2: Overview
   async getOrderTotal(): Promise<string> {
-    return (await this.page.getByTestId('total-label').textContent()) ?? '';
+    const label = this.page.getByTestId('total-label');
+    await expect(label).toBeVisible();
+    return (await label.textContent()) ?? '';
   }
 
   async finishCheckout(): Promise<void> {

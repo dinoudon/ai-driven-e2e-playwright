@@ -29,8 +29,7 @@ async function suggestTestCases(targetUrl: string): Promise<void> {
   await page.waitForLoadState('networkidle');
 
   const pageTitle = await page.title();
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval
-  const domSnapshot = await page.evaluate('document.body.innerHTML') as string;
+  const domSnapshot = await page.content();
   const truncated = domSnapshot.slice(0, 8000);
   await browser.close();
 
