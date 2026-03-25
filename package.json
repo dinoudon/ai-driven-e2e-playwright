@@ -1,0 +1,26 @@
+{
+  "name": "ai-driven-e2e-playwright",
+  "version": "1.0.0",
+  "description": "AI-driven E2E test automation portfolio project using Playwright and TypeScript",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:chrome": "playwright test --project=chromium",
+    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "lint": "eslint src tests --ext .ts",
+    "format": "prettier --write src tests"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0",
+    "@anthropic-ai/sdk": "^0.30.0",
+    "allure-playwright": "^3.0.0",
+    "allure-commandline": "^2.27.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "prettier": "^3.2.0"
+  }
+}
