@@ -11,7 +11,8 @@ export class CartPage extends BasePage {
   }
 
   async getCartItemCount(): Promise<number> {
-    return this.page.getByTestId('cart-item').count();
+    // SauceDemo uses data-test="inventory-item" for cart item rows (not "cart-item")
+    return this.page.getByTestId('inventory-item').count();
   }
 
   async getCartItemNames(): Promise<string[]> {
@@ -19,7 +20,8 @@ export class CartPage extends BasePage {
   }
 
   async removeItemByName(productName: string): Promise<void> {
-    const item = this.page.getByTestId('cart-item').filter({ hasText: productName });
+    // SauceDemo uses data-test="inventory-item" for cart item rows (not "cart-item")
+    const item = this.page.getByTestId('inventory-item').filter({ hasText: productName });
     await item.getByRole('button', { name: /remove/i }).click();
   }
 
@@ -34,6 +36,7 @@ export class CartPage extends BasePage {
   }
 
   async expectEmpty(): Promise<void> {
-    await expect(this.page.getByTestId('cart-item')).toHaveCount(0);
+    // SauceDemo uses data-test="inventory-item" for cart item rows (not "cart-item")
+    await expect(this.page.getByTestId('inventory-item')).toHaveCount(0);
   }
 }
