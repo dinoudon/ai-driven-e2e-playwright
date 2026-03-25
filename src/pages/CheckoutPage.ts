@@ -26,7 +26,7 @@ export class CheckoutPage extends BasePage {
   async getInfoErrorMessage(): Promise<string> {
     const error = this.page.getByTestId('error');
     await expect(error).toBeVisible();
-    return error.textContent() ?? '';
+    return (await error.textContent()) ?? '';
   }
 
   // Step 2: Overview

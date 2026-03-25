@@ -19,7 +19,7 @@ export class LoginPage extends BasePage {
   async getErrorMessage(): Promise<string> {
     const error = this.page.getByTestId('error');
     await expect(error).toBeVisible();
-    return error.textContent() ?? '';
+    return (await error.textContent()) ?? '';
   }
 
   async expectLoginSuccess(): Promise<void> {
