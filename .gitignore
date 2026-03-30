@@ -5,3 +5,7 @@ playwright-report/
 allure-results/
 allure-report/
 .auth/user.json
+
+# AI / docs artifacts
+.claude/
+docs/conversation-summary.md
