@@ -1,5 +1,9 @@
 # AI-Driven E2E Playwright
 
+<p align="center">
+  <img src="assets/banner.svg" alt="AI-Driven E2E Playwright banner" width="100%"/>
+</p>
+
 [![E2E Tests](https://github.com/dinoudon/ai-driven-e2e-playwright/workflows/E2E%20Tests/badge.svg)](https://github.com/dinoudon/ai-driven-e2e-playwright/actions)
 [![Playwright](https://img.shields.io/badge/Playwright-1.50-45ba4b?logo=playwright&logoColor=white)](https://playwright.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)

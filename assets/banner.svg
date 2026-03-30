@@ -1,0 +1,246 @@
+<svg width="1200" height="380" viewBox="0 0 1200 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes glow-pulse {
+        0%, 100% { opacity: 0.75; }
+        50%       { opacity: 1;    }
+      }
+      @keyframes blink {
+        0%, 89%, 100% { opacity: 1; }
+        90%, 99%      { opacity: 0; }
+      }
+      .pulse  { animation: glow-pulse 3.5s ease-in-out infinite; }
+      .cursor { animation: blink 1.4s step-end infinite; }
+    </style>
+
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#040810"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+
+    <!-- Ambient green glow (left) -->
+    <radialGradient id="green-orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#22d165" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#22d165" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Ambient cyan glow (right) -->
+    <radialGradient id="cyan-orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00c8e8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#00c8e8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Text glow filter -->
+    <filter id="text-glow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Soft glow filter -->
+    <filter id="soft-glow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Dot grid -->
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.65" fill="#16284a"/>
+    </pattern>
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="1200" height="380" fill="url(#bg)"/>
+  <rect width="1200" height="380" fill="url(#dots)"/>
+
+  <!-- Ambient glow blobs -->
+  <ellipse cx="220" cy="200" rx="310" ry="250" fill="url(#green-orb)"/>
+  <ellipse cx="940" cy="170" rx="290" ry="230" fill="url(#cyan-orb)"/>
+
+  <!-- Subtle vertical separator between left + right -->
+  <line x1="682" y1="56" x2="682" y2="324" stroke="#0e1c2e" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       LEFT SECTION
+  ═══════════════════════════════════════════ -->
+
+  <!-- Vertical neon bar — glow layer -->
+  <rect x="52" y="62" width="7" height="256" rx="3.5"
+        fill="#22d165" filter="url(#soft-glow)" opacity="0.45" class="pulse"/>
+  <!-- Vertical neon bar — crisp layer -->
+  <rect x="54" y="64" width="3" height="252" rx="1.5" fill="#22d165"/>
+  <!-- End caps -->
+  <circle cx="55.5" cy="64"  r="5.5" fill="#22d165" filter="url(#soft-glow)"/>
+  <circle cx="55.5" cy="316" r="5.5" fill="#22d165" filter="url(#soft-glow)"/>
+
+  <!-- Small tick marks on the bar -->
+  <rect x="47" y="128" width="6" height="1.5" rx="0.75" fill="#22d165" opacity="0.5"/>
+  <rect x="47" y="190" width="6" height="1.5" rx="0.75" fill="#22d165" opacity="0.5"/>
+  <rect x="47" y="252" width="6" height="1.5" rx="0.75" fill="#22d165" opacity="0.5"/>
+
+  <!-- Eyebrow label -->
+  <text x="80" y="104"
+    font-family="'Courier New','Lucida Console',monospace"
+    font-size="11" fill="#2e5070" letter-spacing="3.5">PORTFOLIO PROJECT · QA AUTOMATION</text>
+
+  <!-- Title line 1 -->
+  <text x="80" y="164"
+    font-family="'Courier New','Lucida Console',monospace"
+    font-weight="700" font-size="54" fill="#ddeeff" letter-spacing="-1">AI-Driven E2E</text>
+
+  <!-- Title line 2 — glow behind -->
+  <text x="80" y="238"
+    font-family="'Courier New','Lucida Console',monospace"
+    font-weight="700" font-size="76" fill="#22d165"
+    filter="url(#text-glow)" opacity="0.55" class="pulse">Playwright</text>
+  <!-- Title line 2 — crisp front -->
+  <text x="80" y="238"
+    font-family="'Courier New','Lucida Console',monospace"
+    font-weight="700" font-size="76" fill="#22d165">Playwright</text>
+
+  <!-- Blinking cursor after title -->
+  <rect x="550" y="190" width="4" height="40" rx="2" fill="#22d165" class="cursor"/>
+
+  <!-- Tech badge chips -->
+  <!-- TypeScript -->
+  <rect x="80"  y="262" width="118" height="28" rx="4" fill="#08162a" stroke="#3178c6" stroke-width="1.2"/>
+  <text x="139" y="280" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="11.5" fill="#5b9bd5" font-weight="600" letter-spacing="0.5">TypeScript</text>
+
+  <!-- Claude API -->
+  <rect x="208" y="262" width="118" height="28" rx="4" fill="#08162a" stroke="#cc8860" stroke-width="1.2"/>
+  <text x="267" y="280" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="11.5" fill="#cc8860" font-weight="600" letter-spacing="0.5">Claude API</text>
+
+  <!-- Allure -->
+  <rect x="336" y="262" width="82" height="28" rx="4" fill="#08162a" stroke="#ff6b35" stroke-width="1.2"/>
+  <text x="377" y="280" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="11.5" fill="#ff6b35" font-weight="600" letter-spacing="0.5">Allure</text>
+
+  <!-- CI/CD -->
+  <rect x="428" y="262" width="76" height="28" rx="4" fill="#08162a" stroke="#7c5cbf" stroke-width="1.2"/>
+  <text x="466" y="280" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="11.5" fill="#a47fd4" font-weight="600" letter-spacing="0.5">CI/CD</text>
+
+  <!-- Bottom descriptor -->
+  <text x="80" y="334"
+    font-family="'Courier New',monospace" font-size="12.5" fill="#1e3a56">
+    End-to-end automation · 24 tests · 3 browsers · AI-powered tooling
+  </text>
+
+
+  <!-- ═══════════════════════════════════════════
+       RIGHT SECTION — Terminal Panel
+  ═══════════════════════════════════════════ -->
+
+  <!-- Drop shadow -->
+  <rect x="706" y="48" width="462" height="296" rx="12" fill="#000" opacity="0.35"/>
+
+  <!-- Panel body -->
+  <rect x="702" y="44" width="462" height="292" rx="12"
+        fill="#060c18" stroke="#182c46" stroke-width="1.5"/>
+
+  <!-- Title bar background -->
+  <rect x="702" y="44" width="462" height="44" rx="12" fill="#0b1826"/>
+  <rect x="702" y="66" width="462" height="22" fill="#0b1826"/>
+
+  <!-- Traffic lights -->
+  <circle cx="730" cy="66" r="7" fill="#ff5f57"/>
+  <circle cx="753" cy="66" r="7" fill="#febc2e"/>
+  <circle cx="776" cy="66" r="7" fill="#28c840"/>
+
+  <!-- Panel header title -->
+  <text x="944" y="71" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="11" fill="#2e506a" letter-spacing="3">TEST RESULTS</text>
+
+  <!-- Header divider -->
+  <line x1="702" y1="88" x2="1164" y2="88" stroke="#0e1c2e" stroke-width="1.5"/>
+
+  <!-- Column labels -->
+  <text x="724" y="114" font-family="'Courier New',monospace" font-size="10" fill="#1e3a56" letter-spacing="2">BROWSER</text>
+  <text x="852" y="114" font-family="'Courier New',monospace" font-size="10" fill="#1e3a56" letter-spacing="2">PROGRESS</text>
+  <text x="1096" y="114" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#1e3a56" letter-spacing="2">SCORE</text>
+
+  <line x1="714" y1="120" x2="1150" y2="120" stroke="#0c1828" stroke-width="1"/>
+
+  <!-- ── Chromium row ── -->
+  <text x="724" y="148"
+    font-family="'Courier New',monospace" font-size="13" fill="#6fa8c8">Chromium</text>
+  <!-- progress bar bg -->
+  <rect x="834" y="139" width="238" height="7" rx="3.5" fill="#0c1828"/>
+  <!-- progress bar fill — glow layer -->
+  <rect x="834" y="139" width="238" height="7" rx="3.5" fill="#22d165" filter="url(#soft-glow)" opacity="0.5" class="pulse"/>
+  <!-- progress bar fill — crisp -->
+  <rect x="834" y="139" width="238" height="7" rx="3.5" fill="#22d165"/>
+  <text x="1096" y="149" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="13" fill="#22d165" font-weight="700">24/24</text>
+  <text x="1145" y="149" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="14" fill="#1a6640">✓</text>
+
+  <!-- ── Firefox row ── -->
+  <text x="724" y="178"
+    font-family="'Courier New',monospace" font-size="13" fill="#6fa8c8">Firefox</text>
+  <rect x="834" y="169" width="238" height="7" rx="3.5" fill="#0c1828"/>
+  <rect x="834" y="169" width="238" height="7" rx="3.5" fill="#22d165" filter="url(#soft-glow)" opacity="0.5" class="pulse"/>
+  <rect x="834" y="169" width="238" height="7" rx="3.5" fill="#22d165"/>
+  <text x="1096" y="179" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="13" fill="#22d165" font-weight="700">24/24</text>
+  <text x="1145" y="179" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="14" fill="#1a6640">✓</text>
+
+  <!-- ── WebKit row ── -->
+  <text x="724" y="208"
+    font-family="'Courier New',monospace" font-size="13" fill="#6fa8c8">WebKit</text>
+  <rect x="834" y="199" width="238" height="7" rx="3.5" fill="#0c1828"/>
+  <rect x="834" y="199" width="238" height="7" rx="3.5" fill="#22d165" filter="url(#soft-glow)" opacity="0.5" class="pulse"/>
+  <rect x="834" y="199" width="238" height="7" rx="3.5" fill="#22d165"/>
+  <text x="1096" y="209" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="13" fill="#22d165" font-weight="700">24/24</text>
+  <text x="1145" y="209" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="14" fill="#1a6640">✓</text>
+
+  <!-- Row divider -->
+  <line x1="714" y1="224" x2="1150" y2="224" stroke="#0c1828" stroke-width="1"/>
+
+  <!-- ── Summary stats ── -->
+  <!-- Total -->
+  <text x="768" y="258" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="34" fill="#ddeeff" font-weight="700">72</text>
+  <text x="768" y="274" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="9" fill="#1e3a56" letter-spacing="2.5">TOTAL</text>
+
+  <!-- Passed -->
+  <text x="884" y="258" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="34" fill="#22d165" font-weight="700"
+    filter="url(#soft-glow)">72</text>
+  <text x="884" y="274" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="9" fill="#1e3a56" letter-spacing="2.5">PASSED</text>
+
+  <!-- Failed -->
+  <text x="1000" y="258" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="34" fill="#2a6040" font-weight="700">0</text>
+  <text x="1000" y="274" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="9" fill="#1e3a56" letter-spacing="2.5">FAILED</text>
+
+  <!-- Browsers -->
+  <text x="1116" y="258" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="34" fill="#00c8e8" font-weight="700">3</text>
+  <text x="1116" y="274" text-anchor="middle"
+    font-family="'Courier New',monospace" font-size="9" fill="#1e3a56" letter-spacing="2.5">BROWSERS</text>
+
+  <!-- Panel bottom bar -->
+  <rect x="702" y="302" width="462" height="34" rx="0" fill="#060c18"/>
+  <rect x="702" y="302" width="462" height="34" rx="12" fill="#060c18"/>
+  <rect x="702" y="302" width="462" height="12" fill="#060c18"/>
+  <line x1="702" y1="302" x2="1164" y2="302" stroke="#0e1c2e" stroke-width="1"/>
+  <text x="726" y="323"
+    font-family="'Courier New',monospace" font-size="10.5" fill="#22d165">$</text>
+  <text x="742" y="323"
+    font-family="'Courier New',monospace" font-size="10.5" fill="#2e506a"> npx playwright test --reporter=allure</text>
+  <rect x="1128" y="312" width="3" height="14" rx="1" fill="#22d165" class="cursor"/>
+
+  <!-- Corner bracket decorations -->
+  <path d="M 1100 52 L 1152 52 L 1152 88" stroke="#22d165" stroke-width="1.2" fill="none" opacity="0.25"/>
+  <path d="M 714  294 L 714  334 L 752 334" stroke="#00c8e8" stroke-width="1.2" fill="none" opacity="0.25"/>
+</svg>
